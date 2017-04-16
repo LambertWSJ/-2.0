@@ -1,0 +1,277 @@
+$bgColor: #eee
+$blue: #007CB9
+$yellow: #FDDA16
+$orange: #FF9000
+$white: #FFFFFF
+
+
+*
+  font-family: '微軟正黑體'
+  //border: 1px solid
+body,html
+  padding: 0px
+  margin: 0px
+
+body
+  background-color: $bgColor
+  padding-bottom: 30px
+  height: 200%
+    
+
+
+//抽點
+h1
+  text-align: center
+  padding: 20px 0px
+  margin-top: 0px
+  margin-bottom: 0px
+  
+  background-color: $orange
+  border: 4px solid
+.rand
+  width: 100%
+  margin-bottom: 20px
+    
+.randroom
+  margin-left: auto
+  margin-right: auto
+  padding: 0px
+  display: flex
+  justify-content: space-around
+  flex-wrap: wrap
+        
+.block
+  margin-top: 80px
+  margin-bottom: 40px
+  display: inline-block
+  width: calc(100% / 5 - 100px)
+  min-width: 200px
+  max-width: 250px
+  height: 400px
+  position: relative
+  margin-left: 20px
+  border: 5px solid $orange
+  border-radius: 10px
+  // min-width: 200px
+  @for $i from 1 through 5
+    &:nth-child(#{$i})
+      animation:
+        name: rotate
+        duration: 200ms
+        delay: (100ms * $i)
+        timing-function: ease-in-out
+  & p
+    position: relative
+    top: 30%
+    height: 60px
+    width: 100%
+    text-align: center
+    font-size: 50px
+    color: black
+        
+        
+                
+//下方      
+.bottom
+  display: flex
+  justify-content: space-around
+  flex-wrap: wrap
+    
+.title
+  text-align: center
+  font-size: 20px
+  background-color: $blue
+  font-weight: bold
+  margin-top: -20px
+  margin-left: -20px
+  margin-right: -20px
+  color: $white
+  padding: 3px 0px
+//設定   
+.set
+  display: inline-block
+  width: 40%
+  
+  background-color: $yellow
+  border: 4px solid black
+  padding: 20px
+    
+.set_panel
+  margin-top: 10px
+  display: flex
+  flex-direction: column
+
+  & label
+    color: black
+    font-size: 16px
+    font-weight: bold
+    margin-right: 3px
+
+  & .sbtn
+    display: inline-block
+    width: 80px
+    height: 25px
+    text-align: center
+    border-radius: 5px
+    font-weight: bold
+    background-color: $bgColor
+    cursor: pointer
+    user-select: none
+    &:active
+      background-color: #696868
+      color: $white
+  & select
+    width: 80px
+    
+        
+.panel_bottom
+  max-width: 500px
+  margin-bottom: 10px
+  margin-top: 3%
+  & input
+    width: 50%
+.panel_bottom2
+  display: flex
+  justify-content: space-around
+  
+.panel_top
+  max-width: 500px
+  margin-top: 3%
+    
+
+
+
+
+.btn
+  
+  width: 120px
+  flex-wrap: wrap
+  text-align: center
+  padding: 10px
+  border-radius: 5px
+  margin-right: 10px
+  color: $white
+  background-color: $orange
+  cursor: pointer
+  user-select: none
+  margin-top: 0px
+  white-space: nowrap
+
+  &:active
+    background-color: #b16806
+        
+//資訊
+.infos
+  display: inline-block
+  width: 40%
+  padding: 20px
+  
+  background-color: $yellow
+  border: 4px solid
+    
+.infos_panel
+  padding: 0px
+  margin-top: 15px
+  color: black
+  font-weight: bold
+  margin-left: 5px
+  display: flex
+  flex-direction: column
+  
+  & p
+    font-size: 20px
+    margin: 10px
+  & #emp_room
+    margin-left: 5px
+    display: inline-block
+  & #rand_room
+    display: inline
+#empty_room
+  padding: 2px 8px
+  border-radius: 3px
+  border: none
+  
+#emp_room
+  vertical-align: text-top
+  word-break: break-all
+  max-width: 80%
+  min-width: 50%
+  height: auto
+.must::before
+  content: '*'
+  color: red
+  font-size: 18px
+  vertical-align: middle    
+
+
+@keyframes rotate
+  0%
+    opacity: 0
+    transform: rotateY(0deg)
+  100%
+    opacity: 1
+    transform: rotateY(360deg)  
+
+
+@media screen and (max-width: 600px)
+  body
+    padding-bottom: 0
+  #app
+    min-width: 300px
+    
+  .move
+    margin-top: 5vh
+  
+  h1
+    font-size: 30px
+  body
+    height: 120%
+  .infos_panel
+    p
+      min-height: 66px
+    span
+      font-size: 20px
+      display: inline-block
+  
+  .bottom
+    flex-direction: column-reverse
+    flex-wrap: nowrap
+  .block,.rand
+    display: none //--------------
+  .infos,.set
+    width: 100%
+    min-height: 43vh
+    box-sizing: border-box
+    font-size: 25px
+    padding: 10px
+  .title
+    margin-left: -10px
+    margin-right: -10px
+    margin-top: -10px
+  .set_panel
+    padding-left: 5%
+  .panel_bottom2
+    margin-left: -5%
+  .panel_bottom
+    width: 100%
+    margin-right: auto
+    margin-left: auto
+    
+    .btn
+      padding: 10px 20px
+      width: 180px
+      flex-wrap: wrap
+      text-align: center
+      
+  .infos
+    border-top: none
+    border-bottom: none
+    
+  #rand_room
+    width: initial
+  .set
+    border-top: none
+    
+
+    
+    

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>房號抽點</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.2/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="demo">房號抽點</h1>
+      <div class="rand">
+        <div class="randroom">
+          <div class="block">
+            <p id="room1"> </p>
+          </div>
+          <div class="block">
+            <p id="room2"> </p>
+          </div>
+          <div class="block">
+            <p id="room3"> </p>
+          </div>
+          <div class="block">
+            <p id="room4"> </p>
+          </div>
+          <div class="block">
+            <p id="room5"> </p>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="set">
+          <div class="title">設定</div>
+          <div class="set_panel">
+            <div class="panel_top">
+              <label class="must">棟別</label>
+              <select id="building" v-model="index">
+                <option v-for="(bui,id) in house" :value="id">{{bui.building}}</option>
+              </select>
+              <label class="must">樓層</label>
+              <select id="floors" v-mddel="index">
+                <option v-for="(floor,id) in infos[index].floors">{{floor}}</option>
+              </select>
+              <div class="panel_bottom">
+                <label>空房間</label>
+                <input id="empty_room" type="text" placeholder="輸入數字,並以逗號隔開"/>
+              </div>
+              <div class="panel_bottom2 move">
+                <div class="btn" id="start" v-on:click="lucky">開始抽點 </div>
+                <div class="btn" id="clear" v-on:click="clear">清空   </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="infos">
+          <div class="title">資訊</div>
+          <div class="infos_panel">
+            <p>抽點房間 :<span id="rand_room"> </span></p>
+            <p>空房 :<span id="emp_room"> </span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script/script.js"></script>
+  </body>
+</html>

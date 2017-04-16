@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+      title 房號抽點
+      
+      link(rel="stylesheet", href="css/style.css")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.2/vue.min.js")
+  body
+    #app
+      h1.demo 房號抽點
+      .rand
+        .randroom
+            .block
+                p#room1 
+            .block
+                p#room2 
+            .block
+                p#room3 
+            .block
+                p#room4 
+            .block
+                p#room5 
+      //------------------------------- 
+      .bottom
+        .set
+          .title 設定
+          .set_panel
+            .panel_top
+              label.must 棟別
+              select#building(v-model="index")
+                option(v-for="(bui,id) in house", :value="id") {{bui.building}}
+              label.must 樓層
+              select#floors(v-mddel="index")
+                option(v-for="(floor,id) in infos[index].floors") {{floor}}
+
+
+
+              .panel_bottom
+                label 空房間
+                input#empty_room(type="text" placeholder="輸入數字,並以逗號隔開")
+
+
+              .panel_bottom2.move
+                .btn#start(v-on:click="lucky") 開始抽點 
+                .btn#clear(v-on:click="clear") 清空   
+
+        .infos
+          .title 資訊
+          .infos_panel
+              p 抽點房間 :
+                span#rand_room 
+              p 空房 :
+                span#emp_room 
+              
+              
+    script(src="script/script.js")
